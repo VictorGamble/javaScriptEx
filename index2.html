@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Madlib</title>
+    <style>
+        body{
+            background-color: lightgrey;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        button:hover{
+            cursor: pointer;
+            background-color: blue;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <p>Lorem, ipsum dolor sit <span id="span1" >___________</span>consectetur adipisicing elit. Enim facere <span id="span2">___________</span> natus sunt eligendi, exercitationem quis nam praesentium deleniti possimus totam voluptates quibusdam. Aperiam expedita, magnam natus corporis id et! Explicabo.</p>
+    <form>
+        <label>Your input
+            <input type="text" id="userInput" value=""/>
+        </label>
+        <button id="button">Click Me</button>
+        <br>
+        <br>
+        <label>2nd input
+            <input type="text" id="userInput2" value=""/>
+        </label>
+        <button id="button2">Click Me</button>
+
+    </form>
+</body>
+<script>
+    //Variables
+    const span1 = document.getElementById("span1");
+    const span2 = document.getElementById("span2");
+    const buttonClick = document.getElementById("button");
+    const buttonClick2 = document.getElementById("button2")
+    const myInput = document.getElementById("userInput");
+    const myInput2 = document.getElementById("userInput2")
+    
+    //Events
+    buttonClick.addEventListener("click", function(e){
+        e.preventDefault();
+        //console.log("clicked")
+        span1.innerHTML = `${myInput.value} `;
+    })
+
+    buttonClick2.addEventListener("click", function(e){
+        e.preventDefault();
+        console.log("Clicking works")
+        span2.innerHTML = `${myInput2.value} `;
+    })
+
+
+
+
+    
+
+
+
+
+
+    
+</script>
+</html>
