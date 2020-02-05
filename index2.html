@@ -18,52 +18,65 @@
             font-weight: bold;
         }
 
+    
+
     </style>
 </head>
 <body>
-    <p>Lorem, ipsum dolor sit <span id="span1" >___________</span>consectetur adipisicing elit. Enim facere <span id="span2">___________</span> natus sunt eligendi, exercitationem quis nam praesentium deleniti possimus totam voluptates quibusdam. Aperiam expedita, magnam natus corporis id et! Explicabo.</p>
+    <p>Lorem, ipsum dolor sit <span class="blank" >___________</span>consectetur adipisicing elit. Enim facere <span class="blank">___________</span> natus sunt eligendi, exercitationem quis nam praesentium deleniti possimus totam voluptates quibusdam. Aperiam expedita, magnam natus corporis id et! Explicabo.</p>
     <form>
         <label>Your input
-            <input type="text" id="userInput" value=""/>
+            <input type="text" class="blankInput" value=""/>
         </label>
-        <button id="button">Click Me</button>
         <br>
         <br>
         <label>2nd input
-            <input type="text" id="userInput2" value=""/>
+            <input type="text" class="blankInput" value=""/>
         </label>
-        <button id="button2">Click Me</button>
+        <br>
+        <br>
+        <button id="blankButton">Click Me</button>
 
     </form>
 </body>
 <script>
-    //Variables
-    const span1 = document.getElementById("span1");
-    const span2 = document.getElementById("span2");
-    const buttonClick = document.getElementById("button");
-    const buttonClick2 = document.getElementById("button2")
-    const myInput = document.getElementById("userInput");
-    const myInput2 = document.getElementById("userInput2")
-    
-    //Events
-    buttonClick.addEventListener("click", function(e){
+    //Variable
+    const allBlanks = document.querySelectorAll(".blank")
+    const userInputs = document.querySelectorAll(".blankInput")
+    const buttonClick = document.getElementById("blankButton")
+    const newArray = Array.from(allBlanks)
+
+   //Function
+    const parseUserInput = (listOfInputs) => {
+        const arrayOfValues = [];
+        listOfInputs.forEach((list) => {
+            arrayOfValues.push(list.value);
+        });
+        return arrayOfValues;
+    }
+
+//EventListen
+    // buttonClick.addEventListener("click", function(e){
+    //     e.preventDefault();
+    //     const userInputArray = parseUserInput(userInputs)
+
+    //     allBlanks.forEach(function(blank, index){
+    //     blank.innerHTML = userInputArray[index];
+
+    // });
+
+    // })
+// Using Map
+
+  buttonClick.addEventListener("click", function(e){
         e.preventDefault();
-        //console.log("clicked")
-        span1.innerHTML = `${myInput.value} `;
-    })
+        const userInputArray = parseUserInput(userInputs)
 
-    buttonClick2.addEventListener("click", function(e){
-        e.preventDefault();
-        console.log("Clicking works")
-        span2.innerHTML = `${myInput2.value} `;
-    })
+       newArray.map((blank, index) => {
+        blank.innerHTML = userInputArray[index]
+       })
 
-
-
-
-    
-
-
+    });
 
 
 
